@@ -12,9 +12,9 @@ public:
             freq[num]++;
         }
 
-        priority_queue<pair<int, int>, vector<pair<int, int>>, greater<>> minHeap;
-        for (auto& [num, count] : freq) {
-            minHeap.push({count, num});
+        priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> minHeap;
+        for (const auto& p : freq) {
+            minHeap.push({p.second, p.first});
             if (minHeap.size() > k) {
                 minHeap.pop();
             }
